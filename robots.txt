@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://saurav27p.github.io/pragyarootexp/sitemap.xml
