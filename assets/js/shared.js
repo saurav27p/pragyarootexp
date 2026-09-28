@@ -93,8 +93,31 @@
     var observer = new IntersectionObserver(function(entries){ entries.forEach(function(entry){ if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); } }); }, {threshold:.12});
     items.forEach(function(item){ observer.observe(item); });
   }
+
+  function initScrollProgress(){
+    var progress = $("[data-scroll-progress]");
+    if (!progress) return;
+    var update = function(){ var max = document.documentElement.scrollHeight - window.innerHeight; progress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%"; };
+    window.addEventListener("scroll", update, {passive:true}); update();
+  }
+  function initSpotlight(){
+    $('[data-spotlight]').forEach(function(card){ card.addEventListener("pointermove", function(event){ var rect = card.getBoundingClientRect(); card.style.setProperty("--spot-x", (event.clientX - rect.left) + "px"); card.style.setProperty("--spot-y", (event.clientY - rect.top) + "px"); }); });
+  }
+  function initSessionTimer(){
+    var starts = $('[data-session-start]'); var stops = $('[data-session-stop]'); var launch = $("[data-session-launch]"); var timer = $("[data-session-timer]"); var dock = $("[data-timer-dock]"); var times = $('[data-session-time], [data-dock-time]'); var seconds = 600; var interval = null;
+    var render = function(){ var mins = String(Math.floor(seconds / 60)).padStart(2,"0"); var secs = String(seconds % 60).padStart(2,"0"); times.forEach(function(node){ node.textContent = mins + ":" + secs; }); };
+    var stop = function(){ window.clearInterval(interval); interval = null; if (launch) launch.hidden = false; if (timer) timer.hidden = true; if (dock) dock.hidden = true; seconds = 600; render(); };
+    var start = function(){ window.clearInterval(interval); seconds = 600; render(); if (launch) launch.hidden = true; if (timer) timer.hidden = false; if (dock) dock.hidden = false; showToast("Focus session started. One clear idea at a time."); interval = window.setInterval(function(){ seconds -= 1; render(); if (seconds <= 0) { stop(); showToast("Session complete. Nice work."); } }, 1000); };
+    starts.forEach(function(button){ button.addEventListener("click", start); }); stops.forEach(function(button){ button.addEventListener("click", stop); });
+  }
+  function initInstallPrompt(){
+    var card = $("[data-install-card]"); var install = $("[data-install]"); var dismiss = $("[data-install-dismiss]"); var deferred = null;
+    window.addEventListener("beforeinstallprompt", function(event){ event.preventDefault(); deferred = event; if (card) card.hidden = false; });
+    if (install) install.addEventListener("click", function(){ if (!deferred) { showToast("Use your browser menu to install PragyaRoot."); return; } deferred.prompt(); deferred.userChoice.then(function(){ deferred = null; if (card) card.hidden = true; }); });
+    if (dismiss) dismiss.addEventListener("click", function(){ if (card) card.hidden = true; });
+  }
   function init(){
-    initTheme(); initHeader(); initTabs(); initSearch(); initCompletion(); initReveal();
+    initTheme(); initHeader(); initTabs(); initSearch(); initCompletion(); initReveal(); initScrollProgress(); initSpotlight(); initSessionTimer(); initInstallPrompt();
     $$('[data-year]').forEach(function(node){ node.textContent = new Date().getFullYear(); });
     if ("serviceWorker" in navigator) window.addEventListener("load", function(){ navigator.serviceWorker.register("./sw.js").catch(function(){}); });
   }

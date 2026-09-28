@@ -50,13 +50,14 @@
   </script>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-noise" aria-hidden="true"></div>
 
   <header class="site-header" data-header>
     <div class="container header-inner">
       <a class="brand" href="./" aria-label="PragyaRoot home">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" role="img"><path d="M8 7h24v7H15v6h12c4 0 7 3 7 7s-3 7-7 7H8V7Zm7 20h12c.8 0 1.5-.7 1.5-1.5S27.8 24 27 24H15v3Z" fill="currentColor"/></svg></span>
+        <span class="brand-mark brand-logo-wrap" aria-hidden="true"><img src="./favicon.svg" alt=""></span>
         <span class="brand-word">PragyaRoot</span>
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
@@ -97,17 +98,16 @@
             <span><strong>01</strong> Understand</span><span><strong>02</strong> Practice</span><span><strong>03</strong> Remember</span>
           </div>
         </div>
-        <div class="hero-visual reveal reveal-delay" aria-label="Your learning pulse preview">
-          <div class="pulse-card">
-            <div class="card-topline"><span>YOUR LEARNING PULSE</span><span class="status-dot" aria-label="Active"></span></div>
-            <div class="pulse-heading"><div><span class="micro-label">TODAY</span><h2>Keep the<br>momentum.</h2></div><div class="ring" aria-label="68 percent complete"><span>68<small>%</small></span></div></div>
-            <div class="pulse-rule"></div>
-            <div class="next-session"><span class="micro-label">RECOMMENDED NEXT</span><div class="next-row"><div><h3>Chemical reactions</h3><p>Science · 12 min</p></div><span class="circle-arrow" aria-hidden="true">↗</span></div></div>
-            <div class="mini-progress" aria-hidden="true"><span></span></div>
-            <div class="pulse-foot"><span>3 sessions this week</span><span>+12 min</span></div>
+        <div class="hero-visual reveal reveal-delay" aria-label="The PragyaRoot original mark">
+          <div class="logo-orbit">
+            <img class="logo-halo" src="./favicon.svg" alt="" aria-hidden="true">
+            <div class="logo-frame"><img class="logo-image" src="./favicon.svg" alt="PragyaRoot logo"></div>
+            <div class="logo-caption"><span>PRAGYAROOT</span><span>LEARNING SYSTEM / 01</span></div>
           </div>
-          <div class="float-note float-note-one"><span>FOCUS MODE</span><strong>On</strong></div>
-          <div class="float-note float-note-two"><span>STREAK</span><strong>04 days</strong></div>
+          <div class="float-note float-note-one"><span>ORIGINAL MARK</span><strong>01 / 01</strong></div>
+          <div class="float-note float-note-two"><span>MONOCHROME</span><strong>Pure signal</strong></div>
+          <div class="session-launch" data-session-launch><div><span class="micro-label">QUICK START</span><strong>10 min focus</strong></div><button class="session-start" type="button" data-session-start>Begin <span aria-hidden="true">↗</span></button></div>
+          <div class="session-timer" data-session-timer hidden><span class="micro-label">FOCUS SESSION</span><strong data-session-time>10:00</strong><button type="button" data-session-stop>End</button></div>
         </div>
       </div>
     </section>
@@ -115,6 +115,8 @@
     <section class="trust-rail" aria-label="PragyaRoot commitment">
       <div class="container trust-inner"><p>MADE FOR FOCUSED LEARNERS</p><div class="trust-line"></div><p>SEE NEPAL · CLASS 10</p><div class="trust-line"></div><p>LIGHTWEIGHT · OFFLINE READY</p></div>
     </section>
+
+<div class="marquee-rail" aria-label="PragyaRoot learning modes"><div class="marquee-track"><span>LEARN WITH INTENT</span><b>✳</b><span>PRACTICE WITH PURPOSE</span><b>✳</b><span>REVISE WHAT MATTERS</span><b>✳</b><span>LEARN WITH INTENT</span><b>✳</b><span>PRACTICE WITH PURPOSE</span><b>✳</b><span>REVISE WHAT MATTERS</span><b>✳</b></div></div>
 
     <section class="workspace section-pad" id="system" aria-labelledby="system-title">
       <div class="container">
@@ -138,17 +140,19 @@
       <div class="container">
         <div class="split-heading reveal"><div><p class="eyebrow eyebrow-inverse"><span class="eyebrow-line"></span> Your study space</p><h2 id="learn-title">Less noise.<br><em>More signal.</em></h2></div><p>Everything is designed to help you move from “I have to study” to “I know what to do next.”</p></div>
         <div class="feature-grid">
-          <article class="feature-card feature-large reveal" data-searchable data-title="Learn by concept subject lessons"><span class="card-index">01 / LEARN</span><div class="feature-icon icon-book" aria-hidden="true"><span></span><span></span><span></span></div><h3>Concept-first lessons</h3><p>Start with the idea, not the textbook noise. Build a mental model before you chase the details.</p><a href="#lesson" class="card-link">See a lesson <span>↗</span></a></article>
-          <article class="feature-card reveal" data-searchable data-title="Practice questions exam mode"><span class="card-index">02 / PRACTICE</span><div class="feature-icon icon-target" aria-hidden="true"><span></span></div><h3>Practice that teaches</h3><p>Every answer gives you a reason, not just a red cross.</p><a href="#practice" class="card-link">Try the flow <span>↗</span></a></article>
-          <article class="feature-card reveal" id="revise" data-searchable data-title="Revision spaced repetition memory"><span class="card-index">03 / REVISE</span><div class="feature-icon icon-stack" aria-hidden="true"><span></span><span></span><span></span></div><h3>Revision with timing</h3><p>Return to the right topics before they disappear.</p><a href="#revise" class="card-link">See revision <span>↗</span></a></article>
+          <article class="feature-card spotlight-card feature-large reveal" data-spotlight="true" data-searchable data-title="Learn by concept subject lessons"><span class="card-index">01 / LEARN</span><div class="feature-icon icon-book" aria-hidden="true"><span></span><span></span><span></span></div><h3>Concept-first lessons</h3><p>Start with the idea, not the textbook noise. Build a mental model before you chase the details.</p><a href="#lesson" class="card-link">See a lesson <span>↗</span></a></article>
+          <article class="feature-card spotlight-card reveal" data-spotlight="true" data-searchable data-title="Practice questions exam mode"><span class="card-index">02 / PRACTICE</span><div class="feature-icon icon-target" aria-hidden="true"><span></span></div><h3>Practice that teaches</h3><p>Every answer gives you a reason, not just a red cross.</p><a href="#practice" class="card-link">Try the flow <span>↗</span></a></article>
+          <article class="feature-card spotlight-card reveal" data-spotlight="true" id="revise" data-searchable data-title="Revision spaced repetition memory"><span class="card-index">03 / REVISE</span><div class="feature-icon icon-stack" aria-hidden="true"><span></span><span></span><span></span></div><h3>Revision with timing</h3><p>Return to the right topics before they disappear.</p><a href="#revise" class="card-link">See revision <span>↗</span></a></article>
         </div>
       </div>
     </section>
 
+<section class="manifesto section-pad" aria-labelledby="manifesto-title"><div class="container manifesto-grid"><div class="manifesto-stamp"><img src="./favicon.svg" alt="PragyaRoot logo"><span>PR / 2026</span></div><div class="manifesto-copy reveal"><p class="eyebrow"><span class="eyebrow-line"></span> The PragyaRoot point of view</p><h2 id="manifesto-title">Study is not a<br><em>storage problem.</em></h2><p>It is a signal problem. We remove the noise between curiosity and clarity—then give you a system that brings the right idea back when it matters.</p><div class="manifesto-signature"><span>BUILT FOR THE NEXT QUESTION</span><span>↓</span></div></div></div></section>
+
     <section class="lesson-section section-pad" id="lesson" aria-labelledby="lesson-title">
       <div class="container lesson-grid">
         <div class="lesson-meta reveal"><p class="eyebrow"><span class="eyebrow-line"></span> Inside a lesson</p><p class="lesson-count">CHAPTER 04<br><strong>SCIENCE</strong></p><div class="lesson-side-rule"></div><p class="lesson-side-copy">A focused page should feel like a place you want to stay.</p></div>
-        <article class="lesson-card reveal reveal-delay" data-searchable data-title="Chemical reactions science lesson"><div class="lesson-card-top"><span>SCIENCE / 04.02</span><span>12 MIN READ</span></div><h2 id="lesson-title">Chemical<br><em>reactions.</em></h2><p class="lesson-lead">A chemical reaction is a process in which one or more substances change to form new substances with different properties.</p><div class="lesson-definition"><span class="definition-mark">→</span><div><p class="micro-label">THE SIMPLE VERSION</p><p>Atoms rearrange. The ingredients change, but matter does not disappear.</p></div></div><div class="lesson-actions"><button class="button button-dark" type="button" data-complete="Chemical reactions">Mark as understood <span>✓</span></button><button class="button button-outline" type="button" data-focus>Enter focus mode <span>↗</span></button></div><p class="completion-note" data-completion-note role="status" aria-live="polite"></p></article>
+        <article class="lesson-card spotlight-card reveal reveal-delay" data-spotlight="true" data-searchable data-title="Chemical reactions science lesson"><div class="lesson-card-top"><span>SCIENCE / 04.02</span><span>12 MIN READ</span></div><h2 id="lesson-title">Chemical<br><em>reactions.</em></h2><p class="lesson-lead">A chemical reaction is a process in which one or more substances change to form new substances with different properties.</p><div class="lesson-definition"><span class="definition-mark">→</span><div><p class="micro-label">THE SIMPLE VERSION</p><p>Atoms rearrange. The ingredients change, but matter does not disappear.</p></div></div><div class="lesson-actions"><button class="button button-dark" type="button" data-complete="Chemical reactions">Mark as understood <span>✓</span></button><button class="button button-outline" type="button" data-focus>Enter focus mode <span>↗</span></button></div><p class="completion-note" data-completion-note role="status" aria-live="polite"></p></article>
       </div>
     </section>
 
@@ -165,10 +169,14 @@
 
   </main>
 
+<aside class="install-card container" data-install-card hidden><div><p class="micro-label">PRAGYAROOT / PWA</p><h2>Keep your learning space close.</h2><p>Install the experiment for a faster, offline-ready focus space.</p></div><div class="install-actions"><button class="button button-dark" type="button" data-install>Install PragyaRoot <span>↓</span></button><button class="text-button" type="button" data-install-dismiss>Not now</button></div></aside>
+
   <footer class="site-footer">
-    <div class="container footer-top"><a class="brand brand-footer" href="./" aria-label="PragyaRoot home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M8 7h24v7H15v6h12c4 0 7 3 7 7s-3 7-7 7H8V7Zm7 20h12c.8 0 1.5-.7 1.5-1.5S27.8 24 27 24H15v3Z" fill="currentColor"/></svg></span><span class="brand-word">PragyaRoot</span></a><p>Clear lessons for curious minds.</p><div class="footer-links"><a href="#learn">Learn</a><a href="#practice">Practice</a><a href="#progress">Progress</a><a href="mailto:hello@pragyaroot.com">Contact</a></div></div>
+    <div class="container footer-top"><a class="brand brand-footer" href="./" aria-label="PragyaRoot home"><span class="brand-mark brand-logo-wrap" aria-hidden="true"><img src="./favicon.svg" alt=""></span><span class="brand-word">PragyaRoot</span></a><p>Clear lessons for curious minds.</p><div class="footer-links"><a href="#learn">Learn</a><a href="#practice">Practice</a><a href="#progress">Progress</a><a href="mailto:hello@pragyaroot.com">Contact</a></div></div>
     <div class="container footer-bottom"><span>© <span data-year>2026</span> PragyaRoot Experiment</span><span>Built for SEE Nepal · <a href="./sitemap.xml">Sitemap</a></span></div>
   </footer>
+
+<div class="timer-dock" data-timer-dock hidden><span class="timer-pulse"></span><span>FOCUS SESSION</span><strong data-dock-time>10:00</strong><button type="button" data-session-stop>End session</button></div>
 
   <div class="search-dialog" data-search-dialog hidden><div class="dialog-backdrop" data-search-close></div><section class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title"><div class="search-head"><div><p class="micro-label">PRAGYAROOT SEARCH</p><h2 id="search-title">Find your next idea.</h2></div><button class="close-button" type="button" data-search-close aria-label="Close search">×</button></div><label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m16 16 5 5"/></svg><input type="search" data-search-input placeholder="Search lessons, subjects, or modes" autocomplete="off"><kbd>ESC</kbd></label><div class="search-results" data-search-results><button type="button" data-result="learn" data-search-text="learn concept first lessons">Learn by concept <span>↗</span></button><button type="button" data-result="practice" data-search-text="practice questions exam mode">Practice with purpose <span>↗</span></button><button type="button" data-result="revise" data-search-text="revision remember spaced repetition">Revise what matters <span>↗</span></button><button type="button" data-result="lesson" data-search-text="chemical reactions science">Chemical reactions lesson <span>↗</span></button></div><p class="search-empty" data-search-empty hidden>No matching path yet. Try “science”, “practice”, or “revision”.</p><div class="search-foot"><span>Navigate with ↑ ↓</span><span><kbd>⌘</kbd><kbd>K</kbd> to open</span></div></section></div>
 

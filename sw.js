@@ -1,4 +1,4 @@
-const CACHE = "pragyaroot-exp-v2";
+const CACHE = "pragyaroot-exp-v3-brand";
 const CORE = [
   "./",
   "./index.html",
